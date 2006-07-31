@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<messaging-emoticon-map>
+#foreach ($smiley in ${config.smileys})
+<emoticon file="${smiley.filenameWithoutExtension}">
+#foreach ($keyword in ${smiley.Keywords})
+  #if ($smiley.hasCompleteKeywords())
+    <string>$keyword</string>
+  #else
+    <string>:$keyword:</string>
+    <string>[:$keyword]</string>
+  #end
+#end
+</emoticon>
+#end
+</messaging-emoticon-map>
