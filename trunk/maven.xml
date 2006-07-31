@@ -1,0 +1,5 @@
+<project default="jar:jar" xmlns:ant="jelly:ant">
+    <postGoal name="java:jar-resources">
+        <ant:replace file="${maven.build.dir}/classes/version.properties" token="##VERSION##" value="${pom.currentVersion}" summary="true"/>
+    </postGoal>
+</project>

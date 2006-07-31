@@ -1,0 +1,36 @@
+#!/usr/bin/expect -f
+set timeout 20
+set sshbin /usr/bin/ssh
+set host [lindex $argv 0]
+set user [lindex $argv 1]
+set pass greg
+set drive C:
+set home "C:\\Documents and Settings\\greg"
+set toolpath D:\\Dev-Cpp\\bin
+set libpath D:\\Dev-Cpp\\lib
+set buildpath [lindex $argv 2]
+#$home\\smileylibmaker-tmp
+set libname [lindex $argv 3]
+set builddir .
+set srcdir .
+set outfile [lindex $argv 4]
+
+spawn $sshbin -l $user $host
+expect "Microsoft Windows"
+expect -ex "$home"
+send "mkdir \"$buildpath\" \r"
+expect -ex "$home>"
+send "cd \"$buildpath\" \r"
+expect -ex "$buildpath>"
+send "$toolpath\\gcc.exe -c $srcdir\\dllmain.c -o $builddir\\dllmain.o  -DBUILDING_DLL=1 \r"
+expect -ex "$buildpath>"
+send "$toolpath\\windres.exe -i $builddir\\$libname.rc -I rc -o $builddir\\$libname.res -O coff \r"
+expect -ex "$buildpath>"
+send "$toolpath\\dllwrap.exe --output-def lib$libname.def --implib $builddir\\lib$libname.a $builddir\\dllmain.o $builddir\\$libname.res -L\"$libpath\" --no-export-all-symbols --add-stdcall-alias -o $builddir\\$outfile \r"
+expect -ex "$buildpath>"
+send "exit\r"
+
+#original windows script, for memo
+#c:\apps\mingw\bin\gcc.exe -c %3\dllmain.c -o %2\dllmain.o  -DBUILDING_DLL=1
+#c:\apps\mingw\bin\windres.exe -i %2\%1.rc -I rc -o %2\%1.res -O coff
+#c:\apps\mingw\bin\dllwrap.exe --output-def lib%1.def --implib %2\lib%1.a %2\dllmain.o %2\%1.res -L"c:\apps\mingw\lib" --no-export-all-symbols --add-stdcall-alias -o %2\%1.dll

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+    <pomVersion>3</pomVersion>
+    <currentVersion>1.0-SNAPSHOT</currentVersion>
+    <name>SmileyLibMaker</name>
+    <groupId>incongru</groupId>
+    <id>smileylibmaker</id>
+    <url>http://www.incongru.net</url>
+    <organization>
+        <name>Codehaus</name>
+        <url>http://incongru.net/</url>
+        <logo>http://incongru.net/logo.gif</logo>
+    </organization>
+    <inceptionYear>2004</inceptionYear>
+    <package>net.incongru.smileylibmaker</package>
+    <description>
+    </description>
+    <shortDescription>SmileyLibMaker</shortDescription>
+
+    <issueTrackingUrl></issueTrackingUrl>
+
+    <siteAddress>www.incongru.net</siteAddress>
+    <siteDirectory>/www.incongru.net/htdocs/smileylibmaker/</siteDirectory>
+
+    <distributionSite></distributionSite>
+    <distributionDirectory></distributionDirectory>
+
+    <repository>
+        <connection></connection>
+        <developerConnection></developerConnection>
+        <url></url>
+    </repository>
+
+    <dependencies>
+        <dependency>
+            <groupId>velocity</groupId>
+            <id>velocity</id>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <id>commons-net</id>
+            <version>1.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <id>commons-collections</id>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <id>commons-cli</id>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <id>log4j</id>
+            <version>1.2.8</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>activation</groupId>
+            <id>activation</id>
+            <version>1.0.2</version>
+        </dependency>-->
+        <dependency>
+            <groupId>javatar</groupId>
+            <id>javatar</id>
+            <version>2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>ant</groupId>
+            <id>ant</id>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>picocontainer</groupId>
+            <id>picocontainer</id>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>xstream</groupId>
+            <id>xstream</id>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>xpp3</groupId>
+            <id>xpp3</id>
+            <version>1.1.3.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>${basedir}/src/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.dtd</include>
+                    <include>**/*.xsd</include>
+                    <include>**/*.xhtml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.png</include>
+                    <include>**/*.jpg</include>
+                    <include>**/*.gif</include>
+                    <include>**/*.vm</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <unitTestSourceDirectory>${basedir}/src/test</unitTestSourceDirectory>
+        <unitTest>
+            <includes>
+                <include>**/*Test.*</include>
+                <include>**/*TestCase.*</include>
+            </includes>
+            <excludes>
+                <exclude>**/Abstract*.*</exclude>
+            </excludes>
+            <resources>
+                <resource>
+                    <directory>${basedir}/src/test</directory>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </resource>
+            </resources>
+        </unitTest>
+    </build>
+
+    <!--reports>
+        <report>maven-license-plugin</report>
+        <report>maven-simian-plugin</report>
+        <report>maven-javadoc-plugin</report-->
+        <!--report>maven-clover-plugin</report-->
+    <!--/reports-->
+
+</project>
+

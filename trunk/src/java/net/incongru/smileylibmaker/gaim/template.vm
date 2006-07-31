@@ -1,0 +1,10 @@
+Name=$config.libraryName
+Description=$config.libraryName version $config.version
+Icon=${config.smileys.get(0).localCopy.name}
+Author=$config.author (thanks to black_lord for the template)
+
+[default]
+#foreach ($smiley in ${config.smileys})
+${smiley.localCopy.name}    #foreach ($keyword in ${smiley.keywordsNoSpaces}) #if ($smiley.hasCompleteKeywords()) $keyword #else [:$keyword] #end #end
+
+#end

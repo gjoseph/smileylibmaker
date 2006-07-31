@@ -1,0 +1,8 @@
+#$config.libraryName version $config.version for Miranda+TabSRMM+IEView
+Name    = "$config.libraryName"
+Author  = "$config.author (thanks to drasche for the template)"
+Version = "$config.version"
+ButtonSmiley = ":)"
+#foreach ($smiley in ${config.smileys})
+Smiley = "${smiley.localCopy.name}", -$velocityCount, "#foreach ($keyword in ${smiley.keywordsNoSpaces})#if($smiley.hasCompleteKeywords())$keyword#else[:$keyword] :$keyword: #end#end" , "${smiley.filenameWithoutExtension}"
+#end
