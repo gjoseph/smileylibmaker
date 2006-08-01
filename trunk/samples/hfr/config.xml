@@ -6,11 +6,11 @@
   <buildDir>build</buildDir>
   <newSmileysListFile>new_smileys.txt</newSmileysListFile>
   <ftpConfig>
-    <host>ftp.jeje.org</host>
-    <user>tinh-di_tinh-di_net</user>
-    <password>t1nh-d1</password>
+    <host></host>
+    <user></user>
+    <password></password>
     <passive>true</passive>
-    <remoteDir>www.incongru.net/htdocs/hfr-smileys</remoteDir>
+    <remoteDir></remoteDir>
   </ftpConfig>
   <options>
     <entry>
